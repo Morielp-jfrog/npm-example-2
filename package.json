@@ -6,7 +6,8 @@
   },
   "dependencies": {
     "text": "0.1.0",
-    "langchain": "0.1.18"
+    "langchain": "0.1.18",
+    "ejs": "^3.1.10"
   },
   "devDependencies": {
     "debug": "^4.1.1"

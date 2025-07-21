@@ -16,10 +16,7 @@ permissions:
 jobs:
   security-scan:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        # The repository scanning will be triggered periodically on the following branches.
-        branch: ["main"]
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4

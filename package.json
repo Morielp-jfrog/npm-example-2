@@ -6,7 +6,7 @@
   },
   "dependencies": {
     "text": "0.1.0",
-    "@isaacs/cliui": "8.0.2"
+    "langchain": "0.1.18"
   },
   "devDependencies": {
     "debug": "^4.1.1"

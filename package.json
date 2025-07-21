@@ -5,10 +5,10 @@
     "start": "node helloworld"
   },
   "dependencies": {
-    "text": "0.1.0",
+    "brace-expansion": "^2.0.2",
+    "ejs": "3.1.10",
     "langchain": "0.1.18",
-    "brace-expansion": "2.0.1",
-    "ejs": "3.1.10"
+    "text": "0.1.0"
   },
   "devDependencies": {
     "debug": "^4.1.1"

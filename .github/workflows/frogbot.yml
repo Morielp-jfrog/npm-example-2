@@ -2,10 +2,9 @@ name: "Frogbot Security Scan"
 
 on:
   pull_request_target: 
-    types: [opened, synchronized] # Triggers scan-pr flow for every opened/updated pull request
-  push: # Triggers scan-repo flow for every push to the specified branches
+    types: [opened, reopened] # Triggers scan-pr flow for every opened/updated pull request
     branches:
-      - main
+      - 'develop'
   workflow_dispatch: # The repository will be scanned on demand
 
 permissions:
@@ -15,18 +14,19 @@ permissions:
   # [Mandatory If using OIDC authentication protocol instead of JF_ACCESS_TOKEN]
 
 jobs:
-  frogbot-scan:
+  security-scan:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         # The repository scanning will be triggered periodically on the following branches.
         branch: ["main"]
     steps:
-      - uses: jfrog/frogbot@v2
-        # [Mandatory if using OIDC authentication protocol instead of JF_ACCESS_TOKEN]
-        # Insert to oidc-provider-name the 'Provider Name' defined in the OIDC integration configured in the JPD
-        #with:
-        #  oidc-provider-name: morielp
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Frogbot Scan (combined)
+        uses: jfrog/frogbot@v2
         env:
           JF_URL: ${{ secrets.JF_URL }}
           JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
@@ -36,6 +36,3 @@ jobs:
           JF_FAIL: "false"
           JF_WATCHES: "morielp-1"
           JFROG_CLI_LOG_LEVEL: DEBUG
-
-
-          

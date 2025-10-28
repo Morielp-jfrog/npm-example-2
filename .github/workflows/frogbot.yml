@@ -36,6 +36,7 @@ jobs:
           JF_FAIL: "false"
           JF_WATCHES: "morielp-1"
           JFROG_CLI_LOG_LEVEL: DEBUG
+          JF_INSTALL_DEPS_CMD: yarn install
 
 
           

@@ -9,5 +9,5 @@
     "minimist": "1.2.5",
     "tough-cookie": "2.5.0"
   },
-  "packageManager": "yarn@2.0.0-rc.30"
+  "packageManager": "yarn@3.6.3"
 }
